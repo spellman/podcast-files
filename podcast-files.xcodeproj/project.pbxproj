@@ -14,6 +14,7 @@
 		0E63CC792C3F7926002E06A1 /* podcast_filesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E63CC782C3F7926002E06A1 /* podcast_filesTests.swift */; };
 		0E63CC832C3F7926002E06A1 /* podcast_filesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E63CC822C3F7926002E06A1 /* podcast_filesUITests.swift */; };
 		0E63CC852C3F7926002E06A1 /* podcast_filesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E63CC842C3F7926002E06A1 /* podcast_filesUITestsLaunchTests.swift */; };
+		0EAFC90C2C69529E00CF47A4 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFC90B2C69529E00CF47A4 /* PreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		0E63CC7E2C3F7926002E06A1 /* podcast-filesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "podcast-filesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E63CC822C3F7926002E06A1 /* podcast_filesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podcast_filesUITests.swift; sourceTree = "<group>"; };
 		0E63CC842C3F7926002E06A1 /* podcast_filesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podcast_filesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0EAFC90B2C69529E00CF47A4 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				0E63CC662C3F7923002E06A1 /* AppDelegate.swift */,
 				0E63CC682C3F7923002E06A1 /* ViewController.swift */,
+				0EAFC90B2C69529E00CF47A4 /* PreferencesViewController.swift */,
 				0E63CC6A2C3F7925002E06A1 /* Assets.xcassets */,
 				0E63CC6C2C3F7925002E06A1 /* Main.storyboard */,
 				0E63CC6F2C3F7925002E06A1 /* podcast_files.entitlements */,
@@ -137,6 +140,8 @@
 			dependencies = (
 			);
 			name = "podcast-files";
+			packageProductDependencies = (
+			);
 			productName = "podcast-files";
 			productReference = 0E63CC632C3F7923002E06A1 /* podcast-files.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +214,8 @@
 				Base,
 			);
 			mainGroup = 0E63CC5A2C3F7923002E06A1;
+			packageReferences = (
+			);
 			productRefGroup = 0E63CC642C3F7923002E06A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -253,6 +260,7 @@
 			files = (
 				0E63CC692C3F7923002E06A1 /* ViewController.swift in Sources */,
 				0E63CC672C3F7923002E06A1 /* AppDelegate.swift in Sources */,
+				0EAFC90C2C69529E00CF47A4 /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +358,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -404,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -430,7 +438,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "accordienne.podcast-files";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -455,7 +464,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "accordienne.podcast-files";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -471,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "accordienne.podcast-filesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,7 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "accordienne.podcast-filesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,6 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "accordienne.podcast-filesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,6 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "accordienne.podcast-filesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

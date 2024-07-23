@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -21,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="sFA-Y1-YAK" kind="modal" id="B7V-9S-g7S"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -673,7 +679,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="podcast_files" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,11 +689,11 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Podcast Files" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="280" width="640" height="640"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="300" height="480"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -700,18 +706,513 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Podcast Files-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Podcast Files" id="XfG-lQ-9wD" customClass="ViewController" customModule="podcast_files" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9e4-Zh-7UF">
+                                <rect key="frame" x="20" y="130" width="264" height="120"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jTd-V4-YXm">
+                                        <rect key="frame" x="0.0" y="120" width="264" height="120"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5jN-aD-FH5">
+                                                <rect key="frame" x="-2" y="104" width="116" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Original Recording" id="9Ys-pQ-Scz">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rwB-Yc-1fL">
+                                                <rect key="frame" x="0.0" y="76" width="141" height="20"/>
+                                                <subviews>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="clA-MZ-77c">
+                                                        <rect key="frame" x="-7" y="-7" width="97" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Select File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CpP-ps-1D2">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="handleOriginalRecordingSelectFileButtonClickedWithSender:" target="XfG-lQ-9wD" id="Zoh-9I-v0N"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jIf-zd-OlV">
+                                                        <rect key="frame" x="89" y="4" width="54" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="ZC9-OH-bvU">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9KS-cn-lVE">
+                                                <rect key="frame" x="-7" y="41" width="278" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Back Up Locally and to BackBlaze Cloud" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="B76-a1-4HP">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="handleBackupOriginalRecordingButtonClickedWithSender:" target="XfG-lQ-9wD" id="CWr-RH-SxC"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ocm-mH-BZe">
+                                                <rect key="frame" x="-2" y="24" width="54" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="mJS-Ba-5g5">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ytr-K3-27b">
+                                                <rect key="frame" x="-2" y="0.0" width="54" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="eXU-HL-3kD">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="A2h-dB-9sd">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uyt-xW-2qb">
+                                                <rect key="frame" x="-2" y="104" width="60" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Final Edit" id="WGl-bZ-la4">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ldl-PE-Rqu">
+                                                <rect key="frame" x="0.0" y="52" width="141" height="44"/>
+                                                <subviews>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c9H-Lm-hua">
+                                                        <rect key="frame" x="-7" y="17" width="97" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Select File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U3b-Oj-8nC">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="handleFinalEditSelectFileButtonClickedWithSender:" target="XfG-lQ-9wD" id="tBi-c8-BKF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dcl-d1-vxA">
+                                                        <rect key="frame" x="89" y="28" width="54" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="qMj-pZ-SwQ">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OUD-fQ-Bq2">
+                                                <rect key="frame" x="-7" y="17" width="206" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Back Up to BackBlaze Cloud" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0HF-Zx-GsN">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="handleBackupFinalEditButtonClickedWithSender:" target="XfG-lQ-9wD" id="mtn-Am-ttb"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HOK-kd-yjG">
+                                                <rect key="frame" x="-2" y="0.0" width="54" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="LHn-86-WdU">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="lJR-w9-tfd">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bZ9-Wr-Xuu">
+                                                <rect key="frame" x="-2" y="104" width="239" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Episode Audio Track (MP3 For Spotify)" id="P7q-Rx-kBx">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZiT-IJ-Zqv">
+                                                <rect key="frame" x="0.0" y="52" width="141" height="44"/>
+                                                <subviews>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rzz-AO-SBg">
+                                                        <rect key="frame" x="-7" y="17" width="97" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Select File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IBV-kw-Gcb">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="handleAudioTrackSelectFileButtonClickedWithSender:" target="XfG-lQ-9wD" id="GHS-YV-WeB"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-cN-FjP">
+                                                        <rect key="frame" x="89" y="28" width="54" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="EA3-Rq-jR4">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kyV-kN-JtV">
+                                                <rect key="frame" x="-7" y="17" width="206" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Back Up to BackBlaze Cloud" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mnx-jh-7CJ">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="handleBackupAudioTrackButtonClickedWithSender:" target="XfG-lQ-9wD" id="E3D-9l-CHS"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oEq-sG-QIM">
+                                                <rect key="frame" x="-2" y="0.0" width="54" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="4FO-df-NQv">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="vWN-MB-Tn2">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p1L-UR-pxe" userLabel="Any File">
+                                                <rect key="frame" x="-2" y="104" width="52" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Any File" id="3dH-Ni-X81">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ln-JZ-woY">
+                                                <rect key="frame" x="0.0" y="52" width="141" height="44"/>
+                                                <subviews>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yre-WY-OfC">
+                                                        <rect key="frame" x="-7" y="17" width="97" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Select File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gIW-Cd-Qxm">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="handleAnyFileSelectFileButtonClickedWithSender:" target="XfG-lQ-9wD" id="FJF-hF-azp"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OFl-J3-4RC">
+                                                        <rect key="frame" x="89" y="28" width="54" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="XV9-eC-mRR">
+                                                            <font key="font" usesAppearanceFont="YES"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pSK-gr-cPN">
+                                                <rect key="frame" x="-7" y="17" width="206" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Back Up to BackBlaze Cloud" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zrY-HT-3p5">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="handleBackupAnyFileButtonClickedWithSender:" target="XfG-lQ-9wD" id="byb-cD-ZON"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-Mx-HQz">
+                                                <rect key="frame" x="-2" y="0.0" width="54" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" id="JXr-YB-Flx">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="9e4-Zh-7UF" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="Ake-lP-lLb"/>
+                            <constraint firstItem="9e4-Zh-7UF" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="OeC-46-bhy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="anyFileCloudBackupFeedback" destination="MKs-Mx-HQz" id="l9T-Nv-dYo"/>
+                        <outlet property="anyFileFilePath" destination="OFl-J3-4RC" id="Zho-zg-bKZ"/>
+                        <outlet property="audioTrackCloudBackupFeedback" destination="oEq-sG-QIM" id="GUE-XC-IMD"/>
+                        <outlet property="audioTrackFilePath" destination="mQn-cN-FjP" id="9z5-52-Xex"/>
+                        <outlet property="finalEditCloudBackupFeedback" destination="HOK-kd-yjG" id="dts-IP-vCH"/>
+                        <outlet property="finalEditFilePath" destination="Dcl-d1-vxA" id="rsh-Uc-6lE"/>
+                        <outlet property="originalRecordingCloudBackupFeedback" destination="Ytr-K3-27b" id="eEj-z0-Pui"/>
+                        <outlet property="originalRecordingFilePath" destination="jIf-zd-OlV" id="AVZ-Ev-d5F"/>
+                        <outlet property="originalRecordingLocalBackupFeedback" destination="ocm-mH-BZe" id="Ymq-pJ-zNJ"/>
+                        <segue destination="sFA-Y1-YAK" kind="modal" identifier="showPreferences" id="MiF-lU-SNw"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="916"/>
+        </scene>
+        <!--Preferences-->
+        <scene sceneID="QC0-eK-KQ3">
+            <objects>
+                <viewController title="Preferences" showSeguePresentationStyle="single" id="sFA-Y1-YAK" customClass="PreferencesViewController" customModule="podcast_files" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="BXP-on-dJE">
+                        <rect key="frame" x="0.0" y="0.0" width="456" height="207"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tds-O3-kEh">
+                                <rect key="frame" x="18" y="166" width="207" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Backblaze Access Key Info" usesSingleLineMode="YES" id="3md-tF-8HC">
+                                    <font key="font" textStyle="title2" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CjX-Hv-yBZ">
+                                <rect key="frame" x="18" y="130" width="329" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" title="Get from https://secure.backblaze.com/app_keys.htm" id="q0H-wc-kGg">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="kS6-db-3fI">
+                                <rect key="frame" x="20" y="20" width="416" height="102"/>
+                                <rows>
+                                    <gridRow id="DVd-bN-ako"/>
+                                    <gridRow id="xhD-GF-QtY"/>
+                                    <gridRow id="EEK-Wp-Wpv"/>
+                                    <gridRow id="nCk-pt-stM"/>
+                                </rows>
+                                <columns>
+                                    <gridColumn id="Ecg-M1-5i7"/>
+                                    <gridColumn id="BYj-dP-AIS"/>
+                                </columns>
+                                <gridCells>
+                                    <gridCell row="DVd-bN-ako" column="Ecg-M1-5i7" id="Ybg-4Q-kg9">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7EC-CH-zOr">
+                                            <rect key="frame" x="-2" y="81" width="115" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Application Key ID" id="OqF-kj-Voc">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="DVd-bN-ako" column="BYj-dP-AIS" id="qo4-6v-nW4">
+                                        <textField key="contentView" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y62-La-bWZ">
+                                            <rect key="frame" x="316" y="81" width="100" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="oHK-Py-O3w">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="AoW-R4-ivj" name="value" keyPath="values.backblazeApplicationKeyID" id="ffH-yg-M6p"/>
+                                            </connections>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="xhD-GF-QtY" column="Ecg-M1-5i7" id="4gd-ab-jia">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="afY-PW-LOy">
+                                            <rect key="frame" x="-2" y="54" width="98" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Application Key" id="N6c-Vw-Bqx">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="xhD-GF-QtY" column="BYj-dP-AIS" id="CZe-MY-hzS">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fZc-1j-586">
+                                            <rect key="frame" x="316" y="54" width="100" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="hQU-zP-K2V">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="AoW-R4-ivj" name="value" keyPath="values.backblazeApplicationKey" id="OlU-WP-UFQ"/>
+                                            </connections>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="EEK-Wp-Wpv" column="Ecg-M1-5i7" id="O46-qr-DoW">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-HL-cpS">
+                                            <rect key="frame" x="-2" y="27" width="85" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Bucket Name" id="OHp-3Z-Mcj">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="EEK-Wp-Wpv" column="BYj-dP-AIS" id="mkB-XQ-yXW">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-2d-TJF">
+                                            <rect key="frame" x="316" y="27" width="100" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="fbM-3H-fSd">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="AoW-R4-ivj" name="value" keyPath="values.backblazeBucketName" id="t6f-zX-V9R"/>
+                                            </connections>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="nCk-pt-stM" column="Ecg-M1-5i7" id="Wju-Jx-HDl">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LS0-e8-ezW">
+                                            <rect key="frame" x="-2" y="0.0" width="84" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Author Name" id="e5l-fy-WPM">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="nCk-pt-stM" column="BYj-dP-AIS" id="FeU-4X-Nzv">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-0D-TkV">
+                                            <rect key="frame" x="316" y="0.0" width="100" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="gVQ-Uv-Vfd">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="AoW-R4-ivj" name="value" keyPath="values.authorName" id="gFG-P2-XbS"/>
+                                            </connections>
+                                        </textField>
+                                    </gridCell>
+                                </gridCells>
+                            </gridView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kS6-db-3fI" secondAttribute="trailing" constant="20" symbolic="YES" id="5JI-Sm-Tri"/>
+                            <constraint firstItem="tds-O3-kEh" firstAttribute="top" secondItem="BXP-on-dJE" secondAttribute="top" constant="20" symbolic="YES" id="TwR-1O-11D"/>
+                            <constraint firstItem="kS6-db-3fI" firstAttribute="leading" secondItem="tds-O3-kEh" secondAttribute="leading" id="Vkr-zH-e5m"/>
+                            <constraint firstAttribute="bottom" secondItem="kS6-db-3fI" secondAttribute="bottom" constant="20" symbolic="YES" id="gO7-m7-xdU"/>
+                            <constraint firstItem="kS6-db-3fI" firstAttribute="leading" secondItem="CjX-Hv-yBZ" secondAttribute="leading" id="lvu-0l-MRG"/>
+                            <constraint firstItem="kS6-db-3fI" firstAttribute="top" secondItem="CjX-Hv-yBZ" secondAttribute="bottom" constant="8" symbolic="YES" id="pE0-kR-Jug"/>
+                            <constraint firstItem="kS6-db-3fI" firstAttribute="leading" secondItem="BXP-on-dJE" secondAttribute="leading" constant="20" symbolic="YES" id="puJ-1n-386"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="Vdp-6a-3aA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="AoW-R4-ivj"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="931.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MiF-lU-SNw"/>
+    </inferredMetricsTieBreakers>
 </document>

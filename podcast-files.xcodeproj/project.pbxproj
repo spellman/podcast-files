@@ -47,6 +47,7 @@
 		0E63CC822C3F7926002E06A1 /* podcast_filesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podcast_filesUITests.swift; sourceTree = "<group>"; };
 		0E63CC842C3F7926002E06A1 /* podcast_filesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podcast_filesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0EAFC90B2C69529E00CF47A4 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		0EAFC90D2C6FC17300CF47A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 				0E63CC6A2C3F7925002E06A1 /* Assets.xcassets */,
 				0E63CC6C2C3F7925002E06A1 /* Main.storyboard */,
 				0E63CC6F2C3F7925002E06A1 /* podcast_files.entitlements */,
+				0EAFC90D2C6FC17300CF47A4 /* README.md */,
 			);
 			path = "podcast-files";
 			sourceTree = "<group>";
